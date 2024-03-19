@@ -1,0 +1,11 @@
+<h1>New Survey</h1>
+<%= form_with(model: @survey, local: true) do |form| %>
+  <div>
+    <%= form.label :question %>
+    <%= form.text_field :question %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit 'Create Survey' %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= @survey.question %></h1>
+<% @responses.each do |response| %>
+  <div>
+    <% if response.answer %>
+      <p>Yes</p>
+    <% else %>
+      <p>No</p>
+    <% end %>
+  </div>
+<% end %>

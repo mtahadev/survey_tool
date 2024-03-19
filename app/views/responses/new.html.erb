@@ -1,0 +1,14 @@
+<!-- app/views/responses/new.html.erb -->
+
+<h1>Survey: <%= @survey.question %></h1>
+
+<%= form_with(model: @response, url: survey_responses_path(@survey), method: :post) do |form| %>
+  <div>
+    <%= form.label :answer %><br>
+    <%= form.select :answer, options_for_select([['Select an option', nil], ['Yes', true], ['No', false]], form.object.answer), {}, { class: 'form-control' } %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit 'Submit Response', class: 'btn btn-primary' %>
+  </div>
+<% end %>

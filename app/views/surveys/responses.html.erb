@@ -1,0 +1,11 @@
+<% if @survey.user == current_user %>
+  <h2>Responses for Your Survey: <%= @survey.question %></h2>
+  <h4>Number of Users Responded: <%= @survey.responses.count %></h4>
+  <ul>
+    <% @responses.each do |response| %>
+      <li><%= response.user.email %> - <%= response.created_at.strftime("%B %d, %Y %I:%M %p %Z") %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>Number of Users Responded: <%= @survey.responses.count %></h2>
+<% end %>

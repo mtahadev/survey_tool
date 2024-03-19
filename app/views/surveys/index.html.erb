@@ -1,0 +1,20 @@
+<h1>Surveys</h1>
+<% @surveys.each_with_index do |survey, index| %>
+  <div>
+    <h2><%= "#{index+1}. "  %><%= link_to survey.question, new_survey_response_path(survey), class: 'btn btn-primary' %></h2>
+    <p>Yes: <%= survey.yes_percentage %>%, No: <%= survey.no_percentage %>%</p>
+
+    <% if survey.user == current_user %>
+      <% if survey.responses.present? %>
+        <%= link_to 'View Responses', responses_survey_path(survey), class: 'btn btn-secondary' %>
+      <% else %>
+        <p>No responses available for this survey.</p>
+      <% end %>
+    <% end %>
+  </div>
+  <p>____________________________________________________________</p>
+<% end %>
+<br>
+
+<%= button_to 'Create New Survey', new_survey_path, method: :get, class: 'btn btn-primary' %>
+
